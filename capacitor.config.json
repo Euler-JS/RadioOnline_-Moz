@@ -1,0 +1,11 @@
+{
+	"appId": "com.eulercorp.vfcradio",
+	"appName": "RadioOnline",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+		  "androidScaleType": "CENTER_CROP"
+		}
+	  }
+}

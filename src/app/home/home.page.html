@@ -1,0 +1,177 @@
+<!-- <div id="container">
+    <div class="article" [innerHTML]="element"></div>
+    <ion-button (click)="streamAudio()" expand="block">Block Button</ion-button>
+    <ion-button (click)="stopAudio()" expand="block">Close Stream</ion-button>
+    
+  </div> -->
+<ion-header mode="md">
+  <ion-toolbar>
+
+    <ion-title size="large">Radio Online <img src="../../assets/imags/radioimage.jfif"
+        style="width: 8%; float: none;" /></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+
+
+  <div slot="fixed" style="width: 100%; z-index: 1;   bottom: 0;">
+    <div *ngIf="esperando==true">
+      <!-- <img src="../../assets/icon/botao-de-pausa.png" class="btn-no-centro" (click)="stopAudio()"  /> -->
+      <!-- <ion-button class="buttonStop" class="ion-text-center btn-no-centro" (click)="stopAudio()" expand="block">Stop</ion-button> -->
+    </div>
+
+    <div *ngIf="esperando == false && esperando ==false">
+      <!-- <img src="../../assets/icon/botao-play.png" class="btn-no-centro" (click)="streamAudio()" /> -->
+      <!-- <ion-button class="buttonStop" class="ion-text-center btn-no-centro" (click)="streamAudio()" expand="block">escutar</ion-button> -->
+    </div>
+
+    <ion-segment style="    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;" (ionChange)="changeSegment($event)" class="segment" scrollable value="1">
+      <!-- <ion-segment-button value="1">
+        <ion-label>Rádio</ion-label>
+      </ion-segment-button> -->
+      <ion-segment-button value="2">
+        <ion-label>Programacão da Rádio</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="3">
+        <ion-label>About</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="4">
+        <ion-label>Sobre Nos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </div>
+
+  <div *ngIf="paraVer===1" slot="fixed" class="container">
+    <div>
+      <div id="containerPulse" [ngClass]="{'pulse':esperando}"></div>
+      <div
+        [ngClass]="{'numberCircleBack': reproduzindo, 'numberCircleBack2': !reproduzindo, 'numberCircleBack3': esperando }"
+        class="numberCircle ion-activatable ripple-parent">
+        <div class="" (click)="streamAudio()" [ngClass]="{'heart': esperando}">
+          <img src="assets/icon/vfclogo.png" [ngClass]="{'rotation': reproduzindo}" />
+        </div>
+        <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="paraVer===2" style="margin-bottom: 400px;">
+    <div *ngFor="let programa of programaDaRadio; let i=index">
+      <ion-card id="card_radio__{{i}}" (click)="playAudio('radio__'+i)" style="background-image: url('{{programa.img}}');
+        background-size: cover; filter: sepia(1)">
+
+        <ion-card-header>
+          <div class="descricao">
+            <ion-label style="    margin-left: 10px;
+              color: aliceblue;
+              font-weight: 100;
+              font-family: cursive;
+              font-size: xx-large;">{{programa.descricao}}</ion-label>
+          </div>
+        </ion-card-header>
+        <ion-progress-bar style="display: none; height: 6px;" id="progress_radio__{{i}}" type="indeterminate">
+        </ion-progress-bar>
+        <img id="gif_radio__{{i}}" src="../../assets/wave/wave-sound.gif" style="width: 100%;opacity: 0;
+            filter: drop-shadow(2px 4px 6px black);" />
+        <audio class="audio" id="radio__{{i}}">
+          <source src="{{programa.link}}" type="audio/mpeg">
+          <source src="{{programa.link}}" type="audio/ogg">
+        </audio>
+      </ion-card>
+    </div>
+
+  </div>
+
+  <div style="margin: 50px 10px 200px 10px;" *ngIf="paraVer===3">
+    <ion-card>
+      <img src="../../assets/imags/radioimage.jfif" style="width: 50%; float: right;" />
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+        <ion-card-title>Radio Online</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Web rádio (também conhecida como Rádio via Internet ou Rádio Online) é uma rádio digital que realiza sua
+        transmissão via Internet utilizando
+        a tecnologia (streaming) serviço de transmissão de áudio/som em tempo real.
+        <hr>
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>
+          A Radio Online proporciona Porque rádio online?
+          Maior alcance e visibilidade de público<br>
+
+          A transmissão por meio da internet proporciona que o canal possa ser ouvido por um grande número de pessoas,
+          em qualquer lugar onde elas estejam, até mesmo em diferentes países. Essa característica garante um alcance
+          mais extenso da rádio e aumenta a visibilidade dos conteúdo
+        </ion-card-title>
+      </ion-card-header>
+
+
+      <ion-card-content>
+        <img src="../../assets/imags/radioimage.jfif" style="width: 25%;" />
+        Quais as vantagens da Radio Online?<br>
+        Alcance Global. <br>
+        Qualidade diferenciada. <br>
+        Arquivar transmissões anteriores <br>
+        Interação com o público. <br>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+  <div style="margin: 50px 10px 200px 10px;" *ngIf="paraVer===4">
+    <div style="margin: 50px 10px 100px 10px;">
+      <ion-card>
+        <ion-card-header>
+          <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+          <ion-card-title>Desenvolvido por</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card >
+            <ion-card-content>
+              <div>
+                <img style="filter: drop-shadow(2px 15px 6px black);" src="../../assets/imags/dercio-radioonline.jpg" />
+              </div>
+
+              <h1 style="margin-top: 22px;
+              font-size: xx-large;
+              font-family: fantasy;
+              filter: hue-rotate(45deg);">Dercio J. Manuel</h1>
+              <br>
+              <!-- <h2>Periodo: Laboral </h2> -->
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-content>
+              <div>
+                <img style="filter: drop-shadow(2px 15px 6px black);" src="../../assets/imags/claudina-radioonline.jpg" />
+              </div>
+              <h1 style="margin-top: 22px;
+              font-size: xx-large;
+              font-family: fantasy;
+              filter: hue-rotate(45deg);">Claudina E. Manuel</h1>
+              <br>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+
+
+
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "RadioOnline",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
