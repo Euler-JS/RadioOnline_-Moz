@@ -52,43 +52,7 @@ export class HomePage {
       "descricao": "MAPUTO CORRIDOR RADIO",
       "link": "https://node.stream-africa.com:8443/MaputoCorridor",
       "img": "../../assets/imags/img1.jpg"
-    },
-    {
-      "hora": "06:00 - 08:30",
-      "descricao": "Music Masters Radio",
-      "link": "http://us3.internet-radio.com:8592/live",
-      "img": "../../assets/imags/img1.jpg"
-    },
-    {
-      "hora": "08:35 - 09:00",
-      "descricao": "Morning Devocional Radio",
-      "link": "http://us3.internet-radio.com:8179/live",
-      "img": "../../assets/imags/img2.jpg"
-    },
-    {
-      "hora": "10:35 - 11:30",
-      "descricao": "Riddin1 Radio",
-      "link": "http://us2.internet-radio.com:8183/live",
-      "img": "../../assets/imags/img3.png"
-    },
-    {
-      "hora": "11:35 - 12:00",
-      "descricao": "KCVR ChileVielle Radio",
-      "link": "http://us3.internet-radio.com:8313/live",
-      "img": "../../assets/imags/img4.jpg"
-    },
-    {
-      "hora": "12:05 - 13:00",
-      "descricao": "Programa Livre",
-      "link": "http://uk7.internet-radio.com:8188/live",
-      "img": "../../assets/imags/img5.jpg"
-    },
-    {
-      "hora": "13:05 - 14:00",
-      "descricao": "Time 2 Dance Radio",
-      "link": "http://uk6.internet-radio.com:8332/live",
-      "img": "../../assets/imags/img6.jpg"
-    },
+    }
   ]
 
   paraVer = 2
