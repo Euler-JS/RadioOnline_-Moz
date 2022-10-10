@@ -25,6 +25,12 @@ export class HomePage {
   [
     {
       "hora": "06:00 - 08:30",
+      "descricao": "VFC Mocambique - Radio",
+      "link": "http://uk6.internet-radio.com:8252/live.m3u",
+      "img": "../../assets/imags/img1.jpg"
+    },
+    {
+      "hora": "06:00 - 08:30",
       "descricao": "ANTENA NACIONAL",
       "link": "https://node.stream-africa.com:8443/AntenaNacional",
       "img": "../../assets/imags/img1.jpg"
